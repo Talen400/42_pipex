@@ -6,11 +6,11 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:17:47 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:18:18 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/07 18:31:13 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 static char	*ft_getenv(char *name, char **env)
 {
