@@ -11,7 +11,7 @@ RESET = \033[0m
 # Configuration
 NAME := pipex
 CC := cc
-CFLAGS	:= -Wextra -Wall -Werror
+CFLAGS	:= -g -Wextra -Wall -Werror
 
 # Directories
 SRC_DIR := ./srcs
