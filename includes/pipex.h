@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:50:00 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/02 01:39:12 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/07 01:20:17 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 # include "../libft/libft.h"
 
 # include <unistd.h>
+# include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
 # include <errno.h>
+# include <sys/wait.h>
 
 #endif
