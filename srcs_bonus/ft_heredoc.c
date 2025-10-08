@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_bonus.c                                   :+:      :+:    :+:   */
+/*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/08 04:31:41 by tlavared         ###   ########.fr       */
+/*   Created: 2025/10/08 04:56:37 by tlavared          #+#    #+#             */
+/*   Updated: 2025/10/08 05:42:02 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-void	ft_exec(char *cmd, char **env)
+void	ft_heredoc_put(char **argv, int *fds)
 {
-	char	**s_cmd;
-	char	*path;
+	char	*line;
 
-	path = ft_path_cmd(cmd, env);
-	s_cmd = ft_split(cmd, ' ');
-	if (execve(path, s_cmd, env) == -1)
+	close(fds[0]);
+	while (1)
 	{
-		ft_free_split(s_cmd);
-		free(path);
-		perror("exec child: ");
-		exit(1);
+		line = get_next_line(0);
+		if (ft_strncmp(line, argv[2], ft_strlen(argv[2])) == 0
+			&& line[ft_strlen(argv[2])] == '\n')
+		{
+			free(line);
+			exit(0);
+		}
+		ft_putstr_fd(line, fds[1]);
+		free(line);
 	}
 }
 
-void	ft_pipex(char *cmd, char **env)
+void	ft_heredoc(char	**argv)
 {
 	int		fds[2];
 	pid_t	pid;
 
 	if (pipe(fds) == -1)
-		ft_handler("error pipex: ");
+		ft_handler("heredoc pipe error: ");
 	pid = fork();
 	if (pid == -1)
-		ft_handler("error fork: ");
+		ft_handler("heredoc fork error: ");
 	if (!pid)
-	{
-		close(fds[0]);
-		dup2(fds[1], 1);
-		ft_exec(cmd, env);
-	}
+		ft_heredoc_put(argv, fds);
 	else
 	{
 		close(fds[1]);
 		dup2(fds[0], 0);
+		wait(NULL);
 	}
 }

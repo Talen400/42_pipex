@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 23:09:31 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:19:18 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/08 05:42:35 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int	main(int argc, char **argv, char **env)
 		return (1);
 	}
 	ft_pipex(argv, env);
-	(void ) argc;
 	return (0);
 }

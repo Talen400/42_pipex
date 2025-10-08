@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:50:00 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:30:58 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/08 04:58:29 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <sys/wait.h>
 
 // pipex
-void	ft_pipex(char **argv, char **env);
+void	ft_pipex(char *argv, char **env);
 
 // get path
 char	*ft_path_cmd(char *cmd, char **env);
@@ -34,4 +34,9 @@ int		ft_open(char *filename, int in_or_out);
 void	ft_free_split(char **str);
 void	ft_handler(const char *str);
 
+// exec
+void	ft_exec(char *cmd, char **env);
+
+// heredoc
+void	ft_heredoc(char	**argv);
 #endif

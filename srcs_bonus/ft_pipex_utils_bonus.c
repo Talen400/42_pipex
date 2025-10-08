@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_utils.c                                   :+:      :+:    :+:   */
+/*   ft_pipex_utils_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:10 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:31:29 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/08 04:55:06 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_open(char *filename, int in_or_out)
 		fd = open(filename, O_RDONLY, 0777);
 	else if (in_or_out == 1)
 		fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	else if (in_or_out == 2)
+		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0777);
 	if (fd < 0)
 		ft_handler("open: ");
 	return (fd);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path.c                                          :+:      :+:    :+:   */
+/*   ft_path_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:17:47 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:31:13 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/08 04:34:42 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static char	*ft_getenv(char *name, char **env)
 		while (env[i][j] != '=')
 			j++;
 		sub = ft_substr(env[i], 0, j);
-		printf("sub sendo capturado: %s\n", sub);
 		if (ft_strcmp(sub, name) == 0)
 		{
 			free(sub);
