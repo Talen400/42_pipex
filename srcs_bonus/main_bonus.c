@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 23:09:31 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 03:04:08 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 03:42:10 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_last(int argc, char **argv, char **env)
 	out = ft_open(argv[argc - 1], 1);
 	pid = fork();
 	if (pid == -1)
-		ft_handler("fork error: ");
+		ft_handler("fork error");
 	if (!pid)
 	{
 		dup2(out, 1);
@@ -41,7 +41,7 @@ int	main(int argc, char **argv, char **env)
 	if (ft_strcmp(argv[1], "here_doc") == 0)
 	{
 		if (argc < 6)
-			ft_handler("./pipex here_doc LIMIT cmd cmd1 ... outfile");
+			ft_handler("Usage: ./pipex here_doc LIMIT cmd cmd1 ... outfile");
 		i = 3;
 		ft_heredoc(argv);
 	}

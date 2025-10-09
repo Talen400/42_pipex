@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 04:56:37 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 02:57:26 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 03:41:33 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	ft_heredoc(char	**argv)
 	pid_t	pid;
 
 	if (pipe(fds) == -1)
-		ft_handler("heredoc pipe error: ");
+		ft_handler("heredoc pipe error");
 	pid = fork();
 	if (pid == -1)
-		ft_handler("heredoc fork error: ");
+		ft_handler("heredoc fork error");
 	if (!pid)
 		ft_heredoc_put(argv, fds);
 	else

@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:10 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:21:57 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 03:41:12 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	ft_open(char *filename, int in_or_out)
 	else if (in_or_out == 1)
 		fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd < 0)
-		ft_handler("open: ");
+		ft_handler("open");
 	return (fd);
 }
