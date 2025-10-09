@@ -1,4 +1,4 @@
-## Pipex
+# Pipex
 
 **Pipex** is a project that explores one of the fundamental concepts of Linux: **system calls**.
 
@@ -20,7 +20,7 @@ cat file.txt | grep "word" | wc -l
 Each command in the pipeline is a separate process that communicates through pipes.
 
 
-# The program:
+## The program:
 
 * Parses and executes a sequence of commands
 * Creates the necessary pipes between them
@@ -28,7 +28,7 @@ Each command in the pipeline is a separate process that communicates through pip
 * Closes unused FDs to avoid leaks or file descriptor exhaustion
 
 
-# 🧰 Building
+## 🧰 Building
 
 To compile the project:
 
@@ -125,4 +125,5 @@ END
 
 
 *Made with ❤️ at 42 São Paulo*
+
 
