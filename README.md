@@ -11,7 +11,7 @@ and according to the POSIX standard, the default ones are:
 * `stderr` = 2
 
 Another important concept is that of **filters** — commands or programs that read from `stdin` 
-and write to `stdout`. Filters are what make shell pipelines work. For example:
+and write to `stdout` (Example: cat, wc -l, grep...). Filters are what make shell pipelines work. For example:
 
 ```bash
 cat file.txt | grep "word" | wc -l
@@ -125,5 +125,6 @@ END
 
 
 *Made with ❤️ at 42 São Paulo*
+
 
 
