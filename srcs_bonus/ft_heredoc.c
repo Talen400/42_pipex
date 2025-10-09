@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 04:56:37 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/08 05:42:02 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 02:57:26 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_heredoc_put(char **argv, int *fds)
 			&& line[ft_strlen(argv[2])] == '\n')
 		{
 			free(line);
+			close(fds[1]);
 			exit(0);
 		}
 		ft_putstr_fd(line, fds[1]);
@@ -45,8 +46,9 @@ void	ft_heredoc(char	**argv)
 		ft_heredoc_put(argv, fds);
 	else
 	{
-		close(fds[1]);
 		dup2(fds[0], 0);
+		close(fds[0]);
+		close(fds[1]);
 		wait(NULL);
 	}
 }

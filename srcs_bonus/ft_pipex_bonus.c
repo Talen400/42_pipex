@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/08 04:31:41 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 02:15:25 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,16 @@ void	ft_pipex(char *cmd, char **env)
 		ft_handler("error fork: ");
 	if (!pid)
 	{
-		close(fds[0]);
 		dup2(fds[1], 1);
+		close(fds[0]);
+		close(fds[1]);
 		ft_exec(cmd, env);
 	}
 	else
 	{
-		close(fds[1]);
 		dup2(fds[0], 0);
+		close(fds[0]);
+		close(fds[1]);
+		waitpid(pid, NULL, 0);
 	}
 }
