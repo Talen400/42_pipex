@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 03:41:48 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 04:05:15 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_pipex(char *cmd, char **env)
 	pid_t	pid;
 
 	if (pipe(fds) == -1)
-		ft_handler("error pipex");
+		ft_handler("error pipe");
 	pid = fork();
 	if (pid == -1)
 		ft_handler("error fork");

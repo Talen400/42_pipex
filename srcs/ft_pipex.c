@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 03:40:57 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 04:05:47 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ void	ft_pipex(char **argv, char **env)
 	pid_t	pid2;
 
 	if (pipe(fds) == -1)
-		ft_handler("pipe");
+		ft_handler("error pipe");
 	pid1 = fork();
 	if (pid1 == -1)
-		ft_handler("fork");
+		ft_handler("error fork 1");
 	if (!pid1)
 		ft_child_in(argv, fds, env);
 	pid2 = fork();
 	if (pid2 == -1)
-		ft_handler("fork");
+		ft_handler("error fork 2");
 	if (!pid2)
 		ft_child_out(argv, fds, env);
 	close(fds[0]);
