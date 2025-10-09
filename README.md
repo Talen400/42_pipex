@@ -1,6 +1,4 @@
----
-
-# Pipex
+## Pipex
 
 **Pipex** is a project that explores one of the fundamental concepts of Linux: **system calls**.
 
@@ -21,18 +19,16 @@ cat file.txt | grep "word" | wc -l
 
 Each command in the pipeline is a separate process that communicates through pipes.
 
----
 
-The program:
+# The program:
 
 * Parses and executes a sequence of commands
 * Creates the necessary pipes between them
 * Uses `fork` and `execve` to handle process creation
 * Closes unused FDs to avoid leaks or file descriptor exhaustion
 
----
 
-## 🧰 Building
+# 🧰 Building
 
 To compile the project:
 
@@ -50,7 +46,6 @@ To compile the project:
 
 The binary `pipex` will be generated in the project root directory.
 
----
 
 ## 🧪 Usage
 
@@ -96,7 +91,6 @@ This behaves like:
 
 It will read from the standard input until the line containing `LIMITER`, and use that as the input for the pipeline. The output will be **appended** to the outfile (not overwritten).
 
----
 
 ## 📁 Example
 
@@ -124,12 +118,11 @@ line 2
 END
 ```
 
----
 
 ## 👤 Author
 
 **tlavared** - 42 São Paulo
 
----
 
 *Made with ❤️ at 42 São Paulo*
+
