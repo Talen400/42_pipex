@@ -36,7 +36,7 @@ SRCS_BONUS := $(SRC_BONUS_DIR)/main_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_path_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_pipex_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_pipex_utils_bonus.c \
-			  $(SRC_BONUS_DIR)/ft_heredoc.c
+			  $(SRC_BONUS_DIR)/ft_heredoc_bonus.c
 
 OBJS_BONUS := $(SRCS_BONUS:$(SRC_BONUS_DIR)/%.c=$(OBJ_BONUS_DIR)/%.o)
 

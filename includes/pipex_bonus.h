@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:50:00 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/08 04:58:29 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:27:49 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <errno.h>
 # include <sys/wait.h>
 
-// pipex
-void	ft_pipex(char *argv, char **env);
+// do pipe
+void	ft_pipe(char *argv, char **env);
 
 // get path
 char	*ft_path_cmd(char *cmd, char **env);

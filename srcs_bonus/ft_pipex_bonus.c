@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 04:05:15 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:26:01 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exec(char *cmd, char **env)
 	}
 }
 
-void	ft_pipex(char *cmd, char **env)
+void	ft_pipe(char *cmd, char **env)
 {
 	int		fds[2];
 	pid_t	pid;
