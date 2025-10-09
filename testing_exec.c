@@ -1,4 +1,4 @@
-#include "../includes/pipex.h"
+#include "includes/pipex.h"
 
 void	ft_handler(const char *str)
 {
@@ -112,18 +112,26 @@ int	main(int argc, char **argv, char **env)
 	char	*exec;
 	exec = ft_path_cmd(argv[2], env);
 	printf("Meu cmd '%s' encontrado! : %s\n", argv[2], exec);
-	if (exec)
-		free(exec);
-	ft_exec(argv[2], env);
-	/*
+	
 	i = 0;
-	printf("env: \n");
+	printf("env antes do execve: \n");
 	while (env[i] != NULL)
 	{
 		printf("env[%d]: %s\n", i, env[i]);
 		i++;
 	}
-	*/
+
+	if (exec)
+		free(exec);
+	ft_exec(argv[2], env);
+	
+	i = 0;
+	printf("env antes do execve: \n");
+	while (env[i] != NULL)
+	{
+		printf("env[%d]: %s\n", i, env[i]);
+		i++;
+	}
 	(void ) i;
 	(void ) argc;
 }

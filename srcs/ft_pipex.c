@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/07 18:21:00 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 01:50:03 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ static void	ft_child_in(char **argv, int *fds, char **env)
 	fd = ft_open(argv[1], 0);
 	dup2(fd, 0);
 	dup2(fds[1], 1);
+	close(fd);
 	close(fds[0]);
+	close(fds[1]);
 	ft_exec(argv[2], env);
 }
 
@@ -46,6 +48,8 @@ static void	ft_child_out(char **argv, int *fds, char **env)
 	fd = ft_open(argv[4], 1);
 	dup2(fd, 1);
 	dup2(fds[0], 0);
+	close(fd);
+	close(fds[0]);
 	close(fds[1]);
 	ft_exec(argv[3], env);
 }
