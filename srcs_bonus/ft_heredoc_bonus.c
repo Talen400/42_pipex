@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_heredoc.c                                       :+:      :+:    :+:   */
+/*   ft_heredoc_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 04:56:37 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 03:41:33 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/10 01:32:47 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	ft_heredoc(char	**argv)
 	pid_t	pid;
 
 	if (pipe(fds) == -1)
-		ft_handler("heredoc pipe error");
+		ft_handler("heredoc pipe error", 1);
 	pid = fork();
 	if (pid == -1)
-		ft_handler("heredoc fork error");
+		ft_handler("heredoc fork error", 1);
 	if (!pid)
 		ft_heredoc_put(argv, fds);
 	else

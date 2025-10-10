@@ -28,7 +28,8 @@ LIBS := $(LIBFT)
 SRCS := $(SRC_DIR)/main.c \
 		$(SRC_DIR)/ft_path.c \
 		$(SRC_DIR)/ft_pipex.c \
-		$(SRC_DIR)/ft_pipex_utils.c
+		$(SRC_DIR)/ft_pipex_utils.c \
+		$(SRC_DIR)/ft_split_lit.c
 
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
@@ -36,7 +37,8 @@ SRCS_BONUS := $(SRC_BONUS_DIR)/main_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_path_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_pipex_bonus.c \
 			  $(SRC_BONUS_DIR)/ft_pipex_utils_bonus.c \
-			  $(SRC_BONUS_DIR)/ft_heredoc_bonus.c
+			  $(SRC_BONUS_DIR)/ft_heredoc_bonus.c \
+			  $(SRC_BONUS_DIR)/ft_split_lit_bonus.c
 
 OBJS_BONUS := $(SRCS_BONUS:$(SRC_BONUS_DIR)/%.c=$(OBJ_BONUS_DIR)/%.o)
 

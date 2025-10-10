@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 21:03:22 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/10 01:24:35 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ static void	ft_exec(char *cmd, char **env)
 	char	**s_cmd;
 	char	*path;
 
-	path = ft_path_cmd(cmd, env);
-	s_cmd = ft_split(cmd, ' ');
+	s_cmd = ft_split_lit(cmd, ' ', '\'');
+	path = ft_path_cmd(s_cmd[0], env);
 	if (execve(path, s_cmd, env) == -1)
 	{
 		ft_free_split(s_cmd);
 		free(path);
-		ft_handler(path);
+		if (errno == EACCES)
+			ft_handler("exec", 126);
+		else
+			ft_handler("exec", 127);
 	}
 }
 
@@ -60,15 +63,15 @@ void	ft_pipex(char **argv, char **env)
 	pid_t	pid2;
 
 	if (pipe(fds) == -1)
-		ft_handler("pipe");
+		ft_handler("pipe", 1);
 	pid1 = fork();
 	if (pid1 == -1)
-		ft_handler("fork child 1");
+		ft_handler("fork child 1", 1);
 	if (!pid1)
 		ft_child_in(argv, fds, env);
 	pid2 = fork();
 	if (pid2 == -1)
-		ft_handler("fork child 2");
+		ft_handler("fork child 2", 1);
 	if (!pid2)
 		ft_child_out(argv, fds, env);
 	close(fds[0]);

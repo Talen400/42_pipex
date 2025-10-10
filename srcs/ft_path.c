@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:17:47 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/08 04:35:00 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/10 01:25:13 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,21 @@ char	*ft_path_cmd(char *cmd, char **env)
 	char	*path_part;
 	char	*exec;
 	char	**path;
-	char	**s_cmd;
 
 	path = ft_split(ft_getenv("PATH", env), ':');
 	i = -1;
-	s_cmd = ft_split(cmd, ' ');
 	while (path[++i])
 	{
 		path_part = ft_strjoin(path[i], "/");
-		exec = ft_strjoin(path_part, s_cmd[0]);
+		exec = ft_strjoin(path_part, cmd);
 		free(path_part);
 		if (access(exec, F_OK | X_OK) == 0)
 		{
-			ft_free_split(s_cmd);
 			ft_free_split(path);
 			return (exec);
 		}
 		free(exec);
 	}
 	ft_free_split(path);
-	ft_free_split(s_cmd);
 	return (ft_strdup(""));
 }

@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:50:00 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 21:11:24 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/10 01:30:22 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ char	*ft_path_cmd(char *cmd, char **env);
 // pipex utils
 int		ft_open(char *filename, int in_or_out);
 void	ft_free_split(char **str);
-void	ft_handler(const char *str);
-void	ft_handler_logic(const char *str);
+void	ft_handler(const char *str, int exit_code);
+void	ft_handler_logic(const char *str, int exit_code);
 
 // exec
 void	ft_exec(char *cmd, char **env);
 
 // heredoc
 void	ft_heredoc(char	**argv);
+
+// ft_split_lit
+char	**ft_split_lit(const char *s, char d, char literal);
+
 #endif
