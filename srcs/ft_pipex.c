@@ -6,7 +6,7 @@
 /*   By: tlavared <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:13:34 by tlavared          #+#    #+#             */
-/*   Updated: 2025/10/09 04:05:47 by tlavared         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:03:22 by tlavared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static void	ft_exec(char *cmd, char **env)
 	{
 		ft_free_split(s_cmd);
 		free(path);
-		perror("exec child");
-		exit(1);
+		ft_handler(path);
 	}
 }
 
@@ -61,15 +60,15 @@ void	ft_pipex(char **argv, char **env)
 	pid_t	pid2;
 
 	if (pipe(fds) == -1)
-		ft_handler("error pipe");
+		ft_handler("pipe");
 	pid1 = fork();
 	if (pid1 == -1)
-		ft_handler("error fork 1");
+		ft_handler("fork child 1");
 	if (!pid1)
 		ft_child_in(argv, fds, env);
 	pid2 = fork();
 	if (pid2 == -1)
-		ft_handler("error fork 2");
+		ft_handler("fork child 2");
 	if (!pid2)
 		ft_child_out(argv, fds, env);
 	close(fds[0]);
